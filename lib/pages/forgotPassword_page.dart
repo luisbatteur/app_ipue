@@ -1,4 +1,3 @@
-// ignore: file_names
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -24,7 +23,7 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        iconTheme: const IconThemeData(color: ShgUtils.cOscuro),
+        iconTheme: const IconThemeData(color: IpueColors.cGris),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -52,7 +51,7 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
                       "Olvidé mi contraseña",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: ShgUtils.cOscuro,
+                        color: IpueColors.cGris,
                         fontFamily: "Inter",
                         fontWeight: FontWeight.bold,
                         fontSize: 20.0,
@@ -62,7 +61,7 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
                       "Por favor, introduzca su email registrado para restablecer su contraseña",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: ShgUtils.cOscuro,
+                        color: IpueColors.cGris,
                       ),
                     ),
                     const SizedBox(
@@ -103,20 +102,20 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
                   return null;
                 }
               },
-              style: const TextStyle(color: ShgUtils.cOscuro),
+              style: const TextStyle(color: IpueColors.cGris),
               controller: controlEmail,
               decoration: const InputDecoration(
                 filled: true,
-                fillColor: ShgUtils.cGris,
-                focusColor: ShgUtils.cBlanco,
+                fillColor: IpueColors.cGris,
+                focusColor: IpueColors.cBlanco,
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(color: ShgUtils.cVerde, width: 1.0),
+                  borderSide:
+                      BorderSide(color: IpueColors.cPrimario, width: 1.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide:
-                      BorderSide(color: ShgUtils.cGrisFuerte, width: 1.0),
+                  borderSide: BorderSide(color: IpueColors.cFondo, width: 1.0),
                 ),
                 // border: OutlineInputBorder(),
                 labelText: "Email",
@@ -125,7 +124,7 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
                 ),
                 prefixIcon: Icon(
                   Icons.email,
-                  color: ShgUtils.cOscuro,
+                  color: IpueColors.cGris,
                 ),
               ),
             ),
@@ -141,7 +140,7 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
               "Restablecer contraseña",
               textAlign: TextAlign.right,
               style: TextStyle(
-                color: ShgUtils.cBlanco,
+                color: IpueColors.cBlanco,
               ),
             ),
           ),
@@ -161,7 +160,7 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
       child: Container(
         width: MediaQuery.of(context).size.width - 30.0,
         decoration: const BoxDecoration(
-          color: ShgUtils.cVerde,
+          color: IpueColors.cPrimario,
           borderRadius: BorderRadius.all(
             Radius.circular(10.0),
           ),
@@ -175,7 +174,7 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
             "Restablecer contraseña",
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: ShgUtils.cBlanco,
+              color: IpueColors.cBlanco,
               fontSize: 20.0,
               fontFamily: "Inter",
             ),
@@ -190,7 +189,7 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
       Map data = {"email": controlEmail.text};
       var body = json.encode(data);
 
-      var url = Uri.parse('${ShgUtils.urlHost}/recoveryPassword.php');
+      var url = Uri.parse('${IpueColors.urlHost}/recoveryPassword.php');
       var response = await http.post(url, body: body);
       var decodeJson = jsonDecode(response.body);
 
@@ -201,11 +200,11 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
           tituloHome,
           decodeJson["message"],
           margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
-          backgroundColor: ShgUtils.cMsgSuccess,
-          colorText: ShgUtils.cBlanco,
+          backgroundColor: IpueColors.cSecundario,
+          colorText: IpueColors.cBlanco,
           icon: const Icon(
             Icons.info,
-            color: ShgUtils.cBlanco,
+            color: IpueColors.cBlanco,
             size: 35,
           ),
           duration: const Duration(seconds: 6),
@@ -225,11 +224,11 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
           tituloHome,
           decodeJson["message"],
           margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
-          backgroundColor: ShgUtils.cMsgWarning,
-          colorText: ShgUtils.cBlanco,
+          backgroundColor: IpueColors.cWarning,
+          colorText: IpueColors.cBlanco,
           icon: const Icon(
             Icons.warning,
-            color: ShgUtils.cBlanco,
+            color: IpueColors.cBlanco,
             size: 35,
           ),
           duration: const Duration(seconds: 6),
@@ -239,11 +238,11 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
           tituloHome,
           decodeJson["message"],
           margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
-          backgroundColor: ShgUtils.cMsgError,
-          colorText: ShgUtils.cBlanco,
+          backgroundColor: IpueColors.cError,
+          colorText: IpueColors.cBlanco,
           icon: const Icon(
             Icons.error,
-            color: ShgUtils.cBlanco,
+            color: IpueColors.cBlanco,
             size: 35,
           ),
           duration: const Duration(seconds: 6),

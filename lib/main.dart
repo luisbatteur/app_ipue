@@ -1,3 +1,4 @@
+import 'package:app_ipue/utilities/styles_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -24,10 +25,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'IPUE',
       theme: ThemeData(
-        fontFamily: "Roboto",
+        fontFamily: "Inter",
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(color: Colors.white),
+          bodyLarge: TextStyle(color: IpueColors.cPrimario),
+          bodySmall: TextStyle(color: IpueColors.cSecundario),
+        ),
       ),
-      // home: const SplashPage(),
-      home: SplashMapPage(),
+      home: const SplashMapPage(),
       builder: EasyLoading.init(),
     );
   }

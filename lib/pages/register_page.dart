@@ -28,7 +28,7 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        iconTheme: const IconThemeData(color: ShgUtils.cOscuro),
+        iconTheme: const IconThemeData(color: IpueColors.cGris),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -56,7 +56,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       "Crear una cuenta",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: ShgUtils.cOscuro,
+                        color: IpueColors.cGris,
                         fontFamily: "Inter",
                         fontWeight: FontWeight.bold,
                         fontSize: 20.0,
@@ -84,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: Text(
                         "¿Ya tienes una cuenta?",
                         style: TextStyle(
-                          color: ShgUtils.cOscuro,
+                          color: IpueColors.cGris,
                           fontFamily: "Inter",
                           fontWeight: FontWeight.bold,
                           fontSize: 15.0,
@@ -104,7 +104,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         child: Text(
                           "¡Acceder!",
                           style: TextStyle(
-                            color: ShgUtils.cVerde,
+                            color: IpueColors.cPrimario,
                             fontFamily: "Inter",
                             fontWeight: FontWeight.bold,
                             fontSize: 15.0,
@@ -146,20 +146,20 @@ class _RegisterPageState extends State<RegisterPage> {
                   return null;
                 }
               },
-              style: const TextStyle(color: ShgUtils.cOscuro),
+              style: const TextStyle(color: IpueColors.cGris),
               controller: controlNombre,
               decoration: const InputDecoration(
                 filled: true,
-                fillColor: ShgUtils.cGris,
-                focusColor: ShgUtils.cBlanco,
+                fillColor: IpueColors.cGris,
+                focusColor: IpueColors.cBlanco,
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(color: ShgUtils.cVerde, width: 1.0),
+                  borderSide:
+                      BorderSide(color: IpueColors.cPrimario, width: 1.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide:
-                      BorderSide(color: ShgUtils.cGrisFuerte, width: 1.0),
+                  borderSide: BorderSide(color: IpueColors.cFondo, width: 1.0),
                 ),
                 // border: OutlineInputBorder(),
                 labelText: "Nombre",
@@ -168,7 +168,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 prefixIcon: Icon(
                   Icons.person,
-                  color: ShgUtils.cOscuro,
+                  color: IpueColors.cGris,
                 ),
               ),
             ),
@@ -190,20 +190,20 @@ class _RegisterPageState extends State<RegisterPage> {
                   return null;
                 }
               },
-              style: const TextStyle(color: ShgUtils.cOscuro),
+              style: const TextStyle(color: IpueColors.cGris),
               controller: controlEmail,
               decoration: const InputDecoration(
                 filled: true,
-                fillColor: ShgUtils.cGris,
-                focusColor: ShgUtils.cBlanco,
+                fillColor: IpueColors.cGris,
+                focusColor: IpueColors.cBlanco,
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(color: ShgUtils.cVerde, width: 1.0),
+                  borderSide:
+                      BorderSide(color: IpueColors.cPrimario, width: 1.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide:
-                      BorderSide(color: ShgUtils.cGrisFuerte, width: 1.0),
+                  borderSide: BorderSide(color: IpueColors.cFondo, width: 1.0),
                 ),
                 // border: OutlineInputBorder(),
                 labelText: "Email",
@@ -212,7 +212,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 prefixIcon: Icon(
                   Icons.mail,
-                  color: ShgUtils.cOscuro,
+                  color: IpueColors.cGris,
                 ),
               ),
             ),
@@ -235,20 +235,20 @@ class _RegisterPageState extends State<RegisterPage> {
                   return null;
                 }
               },
-              style: const TextStyle(color: ShgUtils.cOscuro),
+              style: const TextStyle(color: IpueColors.cGris),
               controller: controlTelefono,
               decoration: const InputDecoration(
                 filled: true,
-                fillColor: ShgUtils.cGris,
-                focusColor: ShgUtils.cBlanco,
+                fillColor: IpueColors.cGris,
+                focusColor: IpueColors.cBlanco,
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(color: ShgUtils.cVerde, width: 1.0),
+                  borderSide:
+                      BorderSide(color: IpueColors.cPrimario, width: 1.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide:
-                      BorderSide(color: ShgUtils.cGrisFuerte, width: 1.0),
+                  borderSide: BorderSide(color: IpueColors.cFondo, width: 1.0),
                 ),
                 // border: OutlineInputBorder(),
                 labelText: "Telefono",
@@ -257,7 +257,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 prefixIcon: Icon(
                   Icons.mail,
-                  color: ShgUtils.cOscuro,
+                  color: IpueColors.cGris,
                 ),
               ),
             ),
@@ -280,26 +280,26 @@ class _RegisterPageState extends State<RegisterPage> {
                   return null;
                 }
               },
-              style: const TextStyle(color: ShgUtils.cOscuro),
+              style: const TextStyle(color: IpueColors.cGris),
               controller: controlContrasena,
               obscureText: !_passwordVisible,
               decoration: InputDecoration(
                 filled: true,
-                fillColor: ShgUtils.cGris,
-                focusColor: ShgUtils.cBlanco,
+                fillColor: IpueColors.cGris,
+                focusColor: IpueColors.cBlanco,
                 focusedBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(color: ShgUtils.cVerde, width: 1.0),
+                  borderSide:
+                      BorderSide(color: IpueColors.cPrimario, width: 1.0),
                 ),
                 enabledBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide:
-                      BorderSide(color: ShgUtils.cGrisFuerte, width: 1.0),
+                  borderSide: BorderSide(color: IpueColors.cFondo, width: 1.0),
                 ),
                 suffixIcon: IconButton(
                   icon: Icon(
                     _passwordVisible ? Icons.visibility : Icons.visibility_off,
-                    color: ShgUtils.cOscuro,
+                    color: IpueColors.cGris,
                   ),
                   onPressed: () {
                     setState(() {
@@ -309,7 +309,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 prefixIcon: const Icon(
                   Icons.security,
-                  color: ShgUtils.cOscuro,
+                  color: IpueColors.cGris,
                 ),
                 border: const OutlineInputBorder(),
                 labelText: "Contraseña",
@@ -331,7 +331,7 @@ class _RegisterPageState extends State<RegisterPage> {
       };
       var body = json.encode(data);
 
-      var url = Uri.parse('${ShgUtils.urlHost}/register.php');
+      var url = Uri.parse('${IpueColors.urlHost}/register.php');
       var response = await http.post(url, body: body);
       var decodeJson = jsonDecode(response.body);
 
@@ -342,11 +342,11 @@ class _RegisterPageState extends State<RegisterPage> {
           tituloHome,
           decodeJson["message"],
           margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
-          backgroundColor: ShgUtils.cMsgSuccess,
-          colorText: ShgUtils.cBlanco,
+          backgroundColor: IpueColors.cSecundario,
+          colorText: IpueColors.cBlanco,
           icon: const Icon(
             Icons.info,
-            color: ShgUtils.cBlanco,
+            color: IpueColors.cBlanco,
             size: 35,
           ),
           duration: const Duration(seconds: 6),
@@ -359,11 +359,11 @@ class _RegisterPageState extends State<RegisterPage> {
           tituloHome,
           decodeJson["message"],
           margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
-          backgroundColor: ShgUtils.cMsgWarning,
-          colorText: ShgUtils.cBlanco,
+          backgroundColor: IpueColors.cWarning,
+          colorText: IpueColors.cBlanco,
           icon: const Icon(
             Icons.warning,
-            color: ShgUtils.cBlanco,
+            color: IpueColors.cBlanco,
             size: 35,
           ),
           duration: const Duration(seconds: 6),
@@ -373,11 +373,11 @@ class _RegisterPageState extends State<RegisterPage> {
           tituloHome,
           decodeJson["message"],
           margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
-          backgroundColor: ShgUtils.cMsgError,
-          colorText: ShgUtils.cBlanco,
+          backgroundColor: IpueColors.cError,
+          colorText: IpueColors.cBlanco,
           icon: const Icon(
             Icons.error,
-            color: ShgUtils.cBlanco,
+            color: IpueColors.cBlanco,
             size: 35,
           ),
           duration: const Duration(seconds: 6),
@@ -400,7 +400,7 @@ class _RegisterPageState extends State<RegisterPage> {
       child: Container(
         width: MediaQuery.of(context).size.width - 30.0,
         decoration: const BoxDecoration(
-          color: ShgUtils.cVerde,
+          color: IpueColors.cPrimario,
           borderRadius: BorderRadius.all(
             Radius.circular(10.0),
           ),
@@ -414,7 +414,7 @@ class _RegisterPageState extends State<RegisterPage> {
             "Regístrate",
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: ShgUtils.cBlanco,
+              color: IpueColors.cBlanco,
               fontSize: 20.0,
               fontFamily: "Inter",
               fontWeight: FontWeight.bold,

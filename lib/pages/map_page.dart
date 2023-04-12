@@ -46,7 +46,7 @@ class _MapPageState extends State<MapPage> {
         "Authorization": "Bearer ${box.read('token')}",
       };
 
-      var url = Uri.parse('${ShgUtils.urlHost}/getIglesias.php');
+      var url = Uri.parse('${IpueColors.urlHost}/getIglesias.php');
       var response = await http.get(url, headers: headers);
       var decodeJson = jsonDecode(response.body);
 
@@ -149,7 +149,7 @@ class _MapPageState extends State<MapPage> {
               ),
               markers: markers,
               polygonOptions: const PolygonOptions(
-                  borderColor: ShgUtils.cVerde,
+                  borderColor: IpueColors.cPrimario,
                   color: Colors.black12,
                   borderStrokeWidth: 3),
               popupOptions: PopupOptions(
@@ -176,7 +176,7 @@ class _MapPageState extends State<MapPage> {
                           ),
                           image: DecorationImage(
                             image: NetworkImage(
-                                "${ShgUtils.urlHost}/images/iglesias/iglesia_2.png"),
+                                "${IpueColors.urlHost}/images/iglesias/iglesia_2.png"),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -186,14 +186,14 @@ class _MapPageState extends State<MapPage> {
                         child: Text(
                           "Tabernáculo de fe",
                           style: TextStyle(
-                            color: ShgUtils.cOscuro,
+                            color: IpueColors.cGris,
                             fontWeight: FontWeight.bold,
                             fontSize: 25.0,
                           ),
                         ),
                       ),
                       const Divider(
-                        color: ShgUtils.cVerdeClaro,
+                        color: IpueColors.cPrimario,
                         height: 10.0,
                         thickness: 1,
                       ),
@@ -208,7 +208,7 @@ class _MapPageState extends State<MapPage> {
                                 Icon(
                                   Icons.web_rounded,
                                   size: 40.0,
-                                  color: ShgUtils.cVerde,
+                                  color: IpueColors.cPrimario,
                                 ),
                                 Text(
                                   "Web",
@@ -227,7 +227,7 @@ class _MapPageState extends State<MapPage> {
                                   Icon(
                                     Icons.my_location_rounded,
                                     size: 40.0,
-                                    color: ShgUtils.cVerde,
+                                    color: IpueColors.cPrimario,
                                   ),
                                   Text(
                                     "Como llegar",
@@ -244,7 +244,7 @@ class _MapPageState extends State<MapPage> {
                                 Icon(
                                   Icons.phone,
                                   size: 40.0,
-                                  color: ShgUtils.cVerde,
+                                  color: IpueColors.cPrimario,
                                 ),
                                 Text(
                                   "Llamar",
@@ -289,7 +289,7 @@ class _MapPageState extends State<MapPage> {
       right: 20,
       child: Container(
         decoration: const BoxDecoration(
-          color: ShgUtils.cBlanco,
+          color: IpueColors.cBlanco,
           borderRadius: BorderRadius.all(
             Radius.circular(
               10.0,
@@ -310,12 +310,12 @@ class _MapPageState extends State<MapPage> {
                 },
                 child: const Icon(
                   Icons.arrow_back,
-                  color: ShgUtils.cOscuro,
+                  color: IpueColors.cGris,
                 ),
               ),
               Expanded(
                 child: TextField(
-                  style: const TextStyle(color: ShgUtils.cOscuro),
+                  style: const TextStyle(color: IpueColors.cGris),
                   controller: controlBuscar,
                   decoration: const InputDecoration(
                     border: InputBorder.none,
@@ -342,7 +342,7 @@ class _MapPageState extends State<MapPage> {
       child: Container(
         width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
-          color: ShgUtils.cBlanco,
+          color: IpueColors.cBlanco,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
         ),
@@ -355,7 +355,7 @@ class _MapPageState extends State<MapPage> {
               Text(
                 address,
                 style: const TextStyle(
-                  color: ShgUtils.cGrisFuerte,
+                  color: IpueColors.cFondo,
                   fontSize: 14.0,
                 ),
               ),
@@ -368,7 +368,7 @@ class _MapPageState extends State<MapPage> {
                   Text(
                     "$numEncontrados iglesias encontradas",
                     style: const TextStyle(
-                      color: ShgUtils.cOscuro,
+                      color: IpueColors.cGris,
                       fontSize: 15.0,
                       fontWeight: FontWeight.bold,
                     ),
@@ -378,7 +378,7 @@ class _MapPageState extends State<MapPage> {
                     child: const Text(
                       "Ver todos",
                       style: TextStyle(
-                        color: ShgUtils.cVerde,
+                        color: IpueColors.cPrimario,
                         fontSize: 14.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -424,7 +424,7 @@ class _MapPageState extends State<MapPage> {
               borderRadius: const BorderRadius.all(Radius.circular(10.0)),
               image: DecorationImage(
                   image: NetworkImage(
-                      "${ShgUtils.urlHost}/images/iglesias/iglesia_${item.id}.png"),
+                      "${IpueColors.urlHost}/images/iglesias/iglesia_${item.id}.png"),
                   fit: BoxFit.cover),
             ),
           ),
@@ -443,7 +443,7 @@ class _MapPageState extends State<MapPage> {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      color: ShgUtils.cOscuro,
+                      color: IpueColors.cGris,
                       fontSize: 14.0,
                       fontWeight: FontWeight.bold,
                     ),
@@ -455,7 +455,7 @@ class _MapPageState extends State<MapPage> {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      color: ShgUtils.cOscuro,
+                      color: IpueColors.cGris,
                       fontSize: 14.0,
                     ),
                   ),
@@ -463,7 +463,7 @@ class _MapPageState extends State<MapPage> {
                 const Text(
                   "5 km",
                   style: TextStyle(
-                    color: ShgUtils.cOscuro,
+                    color: IpueColors.cGris,
                     fontSize: 12.0,
                   ),
                 ),
@@ -476,7 +476,7 @@ class _MapPageState extends State<MapPage> {
                   children: [
                     const Icon(
                       Icons.star_rate,
-                      color: ShgUtils.cVerde,
+                      color: IpueColors.cPrimario,
                     ),
                     const SizedBox(
                       width: 5,
@@ -484,7 +484,7 @@ class _MapPageState extends State<MapPage> {
                     const Text(
                       "4.4",
                       style: TextStyle(
-                        color: ShgUtils.cOscuro,
+                        color: IpueColors.cGris,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -493,15 +493,15 @@ class _MapPageState extends State<MapPage> {
                     ),
                     const CircleAvatar(
                       radius: 18,
-                      backgroundColor: ShgUtils.cVerdeClaro,
+                      backgroundColor: IpueColors.cPrimario,
                       child: IconButton(
                         onPressed: null,
                         icon: Icon(
                           Icons.share_sharp,
                           size: 18.0,
-                          color: ShgUtils.cVerde,
+                          color: IpueColors.cPrimario,
                         ),
-                        color: ShgUtils.cVerde,
+                        color: IpueColors.cPrimario,
                       ),
                     ),
                     const SizedBox(
@@ -509,7 +509,7 @@ class _MapPageState extends State<MapPage> {
                     ),
                     CircleAvatar(
                       radius: 18,
-                      backgroundColor: ShgUtils.cVerdeClaro,
+                      backgroundColor: IpueColors.cPrimario,
                       child: IconButton(
                         onPressed: () => _openPopupMap(
                             double.parse(item.latitud!),
@@ -517,9 +517,9 @@ class _MapPageState extends State<MapPage> {
                         icon: const Icon(
                           Icons.location_on,
                           size: 18.0,
-                          color: ShgUtils.cVerde,
+                          color: IpueColors.cPrimario,
                         ),
-                        color: ShgUtils.cVerdeClaro,
+                        color: IpueColors.cPrimario,
                       ),
                     ),
                   ],
@@ -548,7 +548,7 @@ class _MapPageState extends State<MapPage> {
             ),
             Icon(
               Icons.person,
-              color: ShgUtils.cOscuro,
+              color: IpueColors.cGris,
               size: 30.0,
             ),
           ],
@@ -556,9 +556,8 @@ class _MapPageState extends State<MapPage> {
   }
 
   Widget _markerItem(String idIglesia) {
-    print("${ShgUtils.urlHost}/images/logos/logo_$idIglesia.png?v=1");
     return Image.network(
-      "${ShgUtils.urlHost}/images/logos/logo_$idIglesia.png?v=1",
+      "${IpueColors.urlHost}/images/logos/logo_$idIglesia.png?v=1",
       width: 10,
       height: 10,
       fit: BoxFit.contain,

@@ -1,0 +1,295 @@
+{
+    "error": false,
+    "data": [
+        {
+            "id": 1,
+            "dia": "12",
+            "mes": "Jun",
+            "horaInicio": "10:00",
+            "horaFinal": "13:00",
+            "fechaInicio": "2023-04-12",
+            "fechaFinal": "2023-04-12",
+            "titulo": "Reunion diseño con Daniel",
+            "descripcion": "Descripcion",
+            "tags": [
+                {
+                    "tag": "Trabajo",
+                    "estado": "1"
+                },
+                {
+                    "tag": "Diario",
+                    "estado": "0"
+                },
+                {
+                    "tag": "yo",
+                    "estado": "0"
+                },
+                {
+                    "tag": "Corporativo",
+                    "estado": "0"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "dia": "15",
+            "mes": "Jun",
+            "horaInicio": "10:00",
+            "horaFinal": "11:00",
+            "fechaInicio": "2023-04-12",
+            "fechaFinal": "2023-04-12",
+            "titulo": "Reunion con Ana Pascual",
+            "descripcion": "Descripcion",
+            "tags": [
+                {
+                    "tag": "Trabajo",
+                    "estado": "1"
+                },
+                {
+                    "tag": "Diario",
+                    "estado": "0"
+                },
+                {
+                    "tag": "yo",
+                    "estado": "1"
+                },
+                {
+                    "tag": "Corporativo",
+                    "estado": "0"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "dia": "24",
+            "mes": "Jun",
+            "horaInicio": "10:00",
+            "horaFinal": "13:00",
+            "fechaInicio": "2023-04-12",
+            "fechaFinal": "2023-04-12",
+            "titulo": "Reunion don diseño Daniel",
+            "descripcion": "Descripcion",
+            "tags": [
+                {
+                    "tag": "Trabajo",
+                    "estado": "1"
+                },
+                {
+                    "tag": "Diario",
+                    "estado": "0"
+                },
+                {
+                    "tag": "yo",
+                    "estado": "0"
+                },
+                {
+                    "tag": "Corporativo",
+                    "estado": "0"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "dia": "12",
+            "mes": "Jul",
+            "horaInicio": "10:00",
+            "horaFinal": "13:00",
+            "fechaInicio": "2023-04-12",
+            "fechaFinal": "2023-04-12",
+            "titulo": "Reunion don diseño Daniel",
+            "descripcion": "Descripcion",
+            "tags": [
+                {
+                    "tag": "Trabajo",
+                    "estado": "1"
+                },
+                {
+                    "tag": "Diario",
+                    "estado": "0"
+                },
+                {
+                    "tag": "yo",
+                    "estado": "0"
+                },
+                {
+                    "tag": "Corporativo",
+                    "estado": "0"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "dia": "23",
+            "mes": "Jul",
+            "horaInicio": "10:00",
+            "horaFinal": "13:00",
+            "fechaInicio": "2023-04-12",
+            "fechaFinal": "2023-04-12",
+            "titulo": "Reunion don diseño Daniel",
+            "descripcion": "Descripcion",
+            "tags": [
+                {
+                    "tag": "Trabajo",
+                    "estado": "1"
+                },
+                {
+                    "tag": "Diario",
+                    "estado": "0"
+                },
+                {
+                    "tag": "yo",
+                    "estado": "0"
+                },
+                {
+                    "tag": "Corporativo",
+                    "estado": "0"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "dia": "03",
+            "mes": "Ags",
+            "horaInicio": "10:00",
+            "horaFinal": "13:00",
+            "fechaInicio": "2023-04-12",
+            "fechaFinal": "2023-04-12",
+            "titulo": "Reunion don diseño Daniel",
+            "descripcion": "Descripcion",
+            "tags": [
+                {
+                    "tag": "Trabajo",
+                    "estado": "1"
+                },
+                {
+                    "tag": "Diario",
+                    "estado": "0"
+                },
+                {
+                    "tag": "yo",
+                    "estado": "0"
+                },
+                {
+                    "tag": "Corporativo",
+                    "estado": "0"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "dia": "12",
+            "mes": "Ags",
+            "horaInicio": "10:00",
+            "horaFinal": "13:00",
+            "fechaInicio": "2023-04-12",
+            "fechaFinal": "2023-04-12",
+            "titulo": "Reunion don diseño Daniel",
+            "descripcion": "Descripcion",
+            "tags": [
+                {
+                    "tag": "Trabajo",
+                    "estado": "1"
+                },
+                {
+                    "tag": "Diario",
+                    "estado": "0"
+                },
+                {
+                    "tag": "yo",
+                    "estado": "0"
+                },
+                {
+                    "tag": "Corporativo",
+                    "estado": "0"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "dia": "22",
+            "mes": "Ags",
+            "horaInicio": "10:00",
+            "horaFinal": "13:00",
+            "fechaInicio": "2023-04-12",
+            "fechaFinal": "2023-04-12",
+            "titulo": "Reunion don diseño Daniel",
+            "descripcion": "Descripcion",
+            "tags": [
+                {
+                    "tag": "Trabajo",
+                    "estado": "1"
+                },
+                {
+                    "tag": "Diario",
+                    "estado": "0"
+                },
+                {
+                    "tag": "yo",
+                    "estado": "0"
+                },
+                {
+                    "tag": "Corporativo",
+                    "estado": "0"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "dia": "25",
+            "mes": "Ago",
+            "horaInicio": "10:00",
+            "horaFinal": "13:00",
+            "fechaInicio": "2023-04-12",
+            "fechaFinal": "2023-04-12",
+            "titulo": "Reunion don diseño Daniel",
+            "descripcion": "Descripcion",
+            "tags": [
+                {
+                    "tag": "Trabajo",
+                    "estado": "1"
+                },
+                {
+                    "tag": "Diario",
+                    "estado": "0"
+                },
+                {
+                    "tag": "yo",
+                    "estado": "0"
+                },
+                {
+                    "tag": "Corporativo",
+                    "estado": "0"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "dia": "03",
+            "mes": "Sep",
+            "horaInicio": "10:00",
+            "horaFinal": "13:00",
+            "fechaInicio": "2023-04-12",
+            "fechaFinal": "2023-04-12",
+            "titulo": "Reunion don diseño Daniel",
+            "descripcion": "Descripcion",
+            "tags": [
+                {
+                    "tag": "Trabajo",
+                    "estado": "1"
+                },
+                {
+                    "tag": "Diario",
+                    "estado": "0"
+                },
+                {
+                    "tag": "yo",
+                    "estado": "0"
+                },
+                {
+                    "tag": "Corporativo",
+                    "estado": "0"
+                }
+            ]
+        }
+    ]
+}

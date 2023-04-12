@@ -10,7 +10,7 @@ class EmailSentPage extends StatefulWidget {
   final String email, password;
 
   // ignore: use_key_in_widget_constructors
-  const EmailSentPage({required this.email, required this.password});
+  const EmailSentPage({required this.email, required this.password, super.key});
 
   @override
   State<EmailSentPage> createState() => _EmailSentPageState();
@@ -22,7 +22,7 @@ class _EmailSentPageState extends State<EmailSentPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        iconTheme: const IconThemeData(color: ShgUtils.cOscuro),
+        iconTheme: const IconThemeData(color: IpueColors.cGris),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -50,7 +50,7 @@ class _EmailSentPageState extends State<EmailSentPage> {
                       "Enviar por email",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: ShgUtils.cOscuro,
+                        color: IpueColors.cGris,
                         fontFamily: "Inter",
                         fontWeight: FontWeight.bold,
                         fontSize: 20.0,
@@ -63,14 +63,14 @@ class _EmailSentPageState extends State<EmailSentPage> {
                       "El correo electrónico ha sido enviado a",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: ShgUtils.cOscuro,
+                        color: IpueColors.cGris,
                       ),
                     ),
                     Text(
                       widget.email,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        color: ShgUtils.cVerde,
+                        color: IpueColors.cPrimario,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -78,7 +78,7 @@ class _EmailSentPageState extends State<EmailSentPage> {
                       "Por favor, compruebe su email y siga las instrucciones para restablecer su contraseña",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: ShgUtils.cOscuro,
+                        color: IpueColors.cGris,
                       ),
                     ),
                     const SizedBox(
@@ -88,7 +88,7 @@ class _EmailSentPageState extends State<EmailSentPage> {
                       "¿Aún no has recibido el email?",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: ShgUtils.cOscuro,
+                        color: IpueColors.cGris,
                       ),
                     ),
                     const SizedBox(
@@ -123,7 +123,7 @@ class _EmailSentPageState extends State<EmailSentPage> {
             "Reenviar Email",
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: ShgUtils.cVerde,
+              color: IpueColors.cPrimario,
               fontSize: 20.0,
               fontFamily: "Inter",
               fontWeight: FontWeight.bold,
@@ -139,7 +139,7 @@ class _EmailSentPageState extends State<EmailSentPage> {
       Map data = {"email": widget.email};
       var body = json.encode(data);
 
-      var url = Uri.parse('${ShgUtils.urlHost}/recoveryPassword.php');
+      var url = Uri.parse('${IpueColors.urlHost}/recoveryPassword.php');
       var response = await http.post(url, body: body);
       var decodeJson = jsonDecode(response.body);
 
@@ -150,11 +150,11 @@ class _EmailSentPageState extends State<EmailSentPage> {
           tituloHome,
           decodeJson["message"],
           margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
-          backgroundColor: ShgUtils.cMsgSuccess,
-          colorText: ShgUtils.cBlanco,
+          backgroundColor: IpueColors.cPrimario,
+          colorText: IpueColors.cBlanco,
           icon: const Icon(
             Icons.info,
-            color: ShgUtils.cBlanco,
+            color: IpueColors.cBlanco,
             size: 35,
           ),
           duration: const Duration(seconds: 6),
@@ -165,11 +165,11 @@ class _EmailSentPageState extends State<EmailSentPage> {
           tituloHome,
           decodeJson["message"],
           margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
-          backgroundColor: ShgUtils.cMsgWarning,
-          colorText: ShgUtils.cBlanco,
+          backgroundColor: IpueColors.cSecundario,
+          colorText: IpueColors.cBlanco,
           icon: const Icon(
             Icons.warning,
-            color: ShgUtils.cBlanco,
+            color: IpueColors.cBlanco,
             size: 35,
           ),
           duration: const Duration(seconds: 6),
@@ -179,11 +179,11 @@ class _EmailSentPageState extends State<EmailSentPage> {
           tituloHome,
           decodeJson["message"],
           margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
-          backgroundColor: ShgUtils.cMsgError,
-          colorText: ShgUtils.cBlanco,
+          backgroundColor: IpueColors.cSecundario,
+          colorText: IpueColors.cBlanco,
           icon: const Icon(
             Icons.error,
-            color: ShgUtils.cBlanco,
+            color: IpueColors.cBlanco,
             size: 35,
           ),
           duration: const Duration(seconds: 6),

@@ -9,9 +9,9 @@ import 'package:app_ipue/pages/splash_page.dart';
 import 'package:app_ipue/utilities/styles_utils.dart';
 
 final List<String> imgList = [
-  '${ShgUtils.urlHost}/images/publicidades/publi_1.jpg',
-  '${ShgUtils.urlHost}images/publicidades/publi_2.jpg',
-  '${ShgUtils.urlHost}/images/publicidades/publi_3.jpg'
+  '${IpueColors.urlHost}/images/publicidades/publi_1.jpg',
+  '${IpueColors.urlHost}images/publicidades/publi_2.jpg',
+  '${IpueColors.urlHost}/images/publicidades/publi_3.jpg'
 ];
 
 class HomePage extends StatefulWidget {
@@ -122,7 +122,7 @@ class _HomePageState extends State<HomePage> {
           },
           child: Container(
             decoration: const BoxDecoration(
-              color: ShgUtils.cGris,
+              color: IpueColors.cGris,
               borderRadius: BorderRadius.all(
                 Radius.circular(20.0),
               ),
@@ -156,7 +156,7 @@ class _HomePageState extends State<HomePage> {
         Text(
           "Hola,",
           style: TextStyle(
-            color: ShgUtils.cGrisFuerte,
+            color: IpueColors.cFondo,
             fontSize: 25.0,
             fontFamily: "Inter",
             fontWeight: FontWeight.bold,
@@ -165,7 +165,7 @@ class _HomePageState extends State<HomePage> {
         Text(
           "Felix Cortez",
           style: TextStyle(
-            color: ShgUtils.cOscuro,
+            color: IpueColors.cGris,
             fontSize: 30.0,
             fontFamily: "Inter",
             fontWeight: FontWeight.bold,
@@ -182,10 +182,10 @@ class _HomePageState extends State<HomePage> {
           crossAxisCount: 2,
         ),
         children: [
-          _itemsMainMenu("Iglesias", Icons.church, ShgUtils.cCeleste),
-          _itemsMainMenu("Recursos", Icons.play_circle, ShgUtils.cVerde),
-          _itemsMainMenu("Eventos", Icons.calendar_month, ShgUtils.cGris),
-          _itemsMainMenu("Unicidad", Icons.one_k, ShgUtils.cCeleste),
+          _itemsMainMenu("Iglesias", Icons.church, IpueColors.cPrimario),
+          _itemsMainMenu("Recursos", Icons.play_circle, IpueColors.cPrimario),
+          _itemsMainMenu("Eventos", Icons.calendar_month, IpueColors.cGris),
+          _itemsMainMenu("Unicidad", Icons.one_k, IpueColors.cPrimario),
         ],
       ),
     );
@@ -212,7 +212,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Container(
                 decoration: const BoxDecoration(
-                  color: ShgUtils.cBlanco,
+                  color: IpueColors.cBlanco,
                   borderRadius: BorderRadius.all(
                     Radius.circular(
                       90.0,
@@ -233,7 +233,7 @@ class _HomePageState extends State<HomePage> {
               Text(
                 titulo,
                 style: const TextStyle(
-                  color: ShgUtils.cOscuro,
+                  color: IpueColors.cGris,
                   fontFamily: "Inter",
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
@@ -251,14 +251,14 @@ class _HomePageState extends State<HomePage> {
       height: 40.0,
       width: MediaQuery.of(context).size.width - 30.0,
       decoration: const BoxDecoration(
-        color: ShgUtils.cOscuro,
+        color: IpueColors.cGris,
         borderRadius: BorderRadius.all(
           Radius.circular(20.0),
         ),
       ),
       child: const Icon(
         Icons.home,
-        color: ShgUtils.cBlanco,
+        color: IpueColors.cBlanco,
         size: 25.0,
       ),
     );

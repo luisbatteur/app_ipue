@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:app_ipue/pages/dashborad.dart';
+import 'package:app_ipue/utilities/widgets_utils.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
@@ -9,9 +11,8 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:app_ipue/utilities/styles_utils.dart';
 
-import 'home_page.dart';
-
 class SplashMapPage extends StatefulWidget {
+  const SplashMapPage({super.key});
   @override
   State<SplashMapPage> createState() => _SplashMapPageState();
 }
@@ -73,9 +74,9 @@ class _SplashMapPageState extends State<SplashMapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ShgUtils.cVerde,
       body: Stack(
         children: [
+          WidgetUtils.ipueFondo(),
           _panelImage(),
           _panelTextos(),
           _btnGetStarted(),
@@ -115,7 +116,7 @@ class _SplashMapPageState extends State<SplashMapPage> {
                 "¡Encuentra y únete a tu círculo ahora!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: ShgUtils.cBlanco,
+                  color: IpueColors.cBlanco,
                   fontSize: 30.0,
                   fontFamily: "Roboto",
                 ),
@@ -127,7 +128,7 @@ class _SplashMapPageState extends State<SplashMapPage> {
                 "Solución para que todas las personas apasionadas encuentren amigos con la misma pasión en el mundo.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: ShgUtils.cBlanco,
+                  color: IpueColors.cBlanco,
                 ),
               ),
             ],
@@ -144,14 +145,14 @@ class _SplashMapPageState extends State<SplashMapPage> {
         onTap: () {
           login();
           EasyLoading.dismiss();
-          Get.to(const HomePage());
+          Get.to(const Dashboard());
         },
         child: Container(
           decoration: const BoxDecoration(
-            color: ShgUtils.cOscuro,
+            color: IpueColors.cPrimario,
             boxShadow: [
               BoxShadow(
-                color: Colors.black,
+                color: IpueColors.cSecundario,
                 blurRadius: 2.0,
                 spreadRadius: 0.0,
                 offset: Offset(2.0, 2.0), // shadow direction: bottom right
@@ -163,16 +164,16 @@ class _SplashMapPageState extends State<SplashMapPage> {
           ),
           child: const Padding(
             padding: EdgeInsets.only(
-              top: 25.0,
-              bottom: 25.0,
+              top: 20.0,
+              bottom: 20.0,
             ),
             child: Center(
               child: Text(
-                "Empezar",
+                "EMPEZAR",
                 style: TextStyle(
-                  color: ShgUtils.cBlanco,
+                  color: IpueColors.cBlanco,
                   fontFamily: "Roboto",
-                  fontSize: 15.0,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -188,7 +189,7 @@ class _SplashMapPageState extends State<SplashMapPage> {
       Map data = {"email": "fericor@gmail.com", "password": "vekg80sy"};
       var body = json.encode(data);
 
-      var url = Uri.parse('${ShgUtils.urlHost}/login.php');
+      var url = Uri.parse('${IpueColors.urlHost}/login.php');
       var response = await http.post(url, body: body);
       var decodeJson = jsonDecode(response.body);
 

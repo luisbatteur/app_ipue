@@ -40,6 +40,7 @@ class _SplashPageState extends State<SplashPage> {
     box.write('myAddress', address);
   }
 
+  // ignore: unused_element
   Future<Position> _determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
@@ -114,7 +115,7 @@ class _SplashPageState extends State<SplashPage> {
                           "IPUE\nEncuentra una iglesia en cualquier lugar",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: ShgUtils.cOscuro,
+                            color: IpueColors.cGris,
                             fontFamily: "Inter",
                             fontSize: 20.0,
                           ),
@@ -142,7 +143,7 @@ class _SplashPageState extends State<SplashPage> {
                         child: Text(
                           "¿Ya tienes una cuenta?",
                           style: TextStyle(
-                            color: ShgUtils.cOscuro,
+                            color: IpueColors.cGris,
                             fontFamily: "Inter",
                             fontWeight: FontWeight.bold,
                             fontSize: 15.0,
@@ -162,7 +163,7 @@ class _SplashPageState extends State<SplashPage> {
                           child: Text(
                             "¡Acceder!",
                             style: TextStyle(
-                              color: ShgUtils.cVerde,
+                              color: IpueColors.cPrimario,
                               fontFamily: "Inter",
                               fontWeight: FontWeight.bold,
                               fontSize: 15.0,
@@ -193,7 +194,7 @@ class _SplashPageState extends State<SplashPage> {
       child: Container(
         width: MediaQuery.of(context).size.width - 100.0,
         decoration: const BoxDecoration(
-          color: ShgUtils.cVerde,
+          color: IpueColors.cPrimario,
           borderRadius: BorderRadius.all(
             Radius.circular(10.0),
           ),
@@ -207,7 +208,7 @@ class _SplashPageState extends State<SplashPage> {
             "Crea una cuenta",
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: ShgUtils.cBlanco,
+              color: IpueColors.cBlanco,
               fontSize: 18.0,
               fontFamily: "Inter",
             ),
@@ -222,7 +223,7 @@ class _SplashPageState extends State<SplashPage> {
       width: MediaQuery.of(context).size.width - 100.0,
       decoration: BoxDecoration(
         border: Border.all(
-          color: ShgUtils.cFacebook,
+          color: IpueColors.cPrimario,
           width: 2.0,
         ),
         borderRadius: const BorderRadius.all(
@@ -240,7 +241,7 @@ class _SplashPageState extends State<SplashPage> {
             Icon(
               Icons.facebook,
               size: 30.0,
-              color: ShgUtils.cFacebook,
+              color: IpueColors.cPrimario,
             ),
             SizedBox(
               width: 5.0,
@@ -249,7 +250,7 @@ class _SplashPageState extends State<SplashPage> {
               "Continuar con Facebook",
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: ShgUtils.cFacebook,
+                color: IpueColors.cPrimario,
                 fontSize: 18.0,
                 fontFamily: "Inter",
               ),
