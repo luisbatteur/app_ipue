@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:custom_pop_up_menu/custom_pop_up_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:http/http.dart' as http;
@@ -33,7 +32,7 @@ class _MapIglesiasState extends State<MapIglesias>
 
   late double latitud = double.parse(box.read('myLatitud').toString());
   late double longitud = double.parse(box.read('myLongitud').toString());
-  double radio = 2000.0;
+  double radio = 100.0;
   String address = "Mi dirección";
   String numEncontrados = "0";
 
@@ -72,9 +71,9 @@ class _MapIglesiasState extends State<MapIglesias>
       circleMarkers = [
         CircleMarker(
             point: LatLng(latitud, longitud),
-            color: Colors.blue.withOpacity(0.7),
-            borderStrokeWidth: 2,
-            borderColor: Colors.yellow,
+            color: IpueColors.cPrimario.withOpacity(.5),
+            borderStrokeWidth: 1,
+            borderColor: IpueColors.cSecundario,
             useRadiusInMeter: true,
             radius: radio // 2000 meters | 2 km
             ),
@@ -84,7 +83,9 @@ class _MapIglesiasState extends State<MapIglesias>
         listaIglesias = IglesiasModel.fromJson(decodeJson);
         numEncontrados = listaIglesias.iglesias!.length.toString();
       });
-    } finally {}
+    } finally {
+      _myLocation();
+    }
   }
 
   @override
@@ -94,7 +95,6 @@ class _MapIglesiasState extends State<MapIglesias>
         children: [
           _panelMap(),
           _panelSearch(),
-          _btnMyLocation(),
           _panelIglesias(),
         ],
       ),
@@ -144,13 +144,6 @@ class _MapIglesiasState extends State<MapIglesias>
     });
   }
 
-  void _modificarRadio(double radio) {
-    /*mapController
-    setState(() {
-      radio = radio;
-    });*/
-  }
-
   Future<void> _makePhoneCall(String phoneNumber) async {
     final Uri launchUri = Uri(
       scheme: 'tel',
@@ -174,12 +167,12 @@ class _MapIglesiasState extends State<MapIglesias>
     return FlutterMap(
       mapController: mapController,
       options: MapOptions(
-        center: LatLng(51.509364, -0.128928),
-        zoom: 9.2,
+        center: LatLng(latitud, longitud),
+        zoom: 17.2,
       ),
       nonRotatedChildren: [
         AttributionWidget.defaultWidget(
-          source: 'OpenStreetMap contributors',
+          source: '',
           onSourceTapped: null,
         ),
       ],
@@ -192,27 +185,22 @@ class _MapIglesiasState extends State<MapIglesias>
             'accessToken': AppConstants.mapBoxAccessToken,
           },
         ),
-        CircleLayer(
-          circles: circleMarkers,
-        ),
         MarkerLayer(
           markers: [
             Marker(
-              height: 80,
-              width: 80,
               point: LatLng(latitud, longitud),
               builder: (_) {
                 return const Icon(
-                  Icons.location_on,
+                  Icons.person_pin_circle,
                   color: IpueColors.cPrimario,
-                  size: 25.0,
+                  size: 50.0,
                 );
               },
             ),
             for (int i = 0; i < listaIglesias.iglesias!.length; i++)
               Marker(
-                height: 80,
-                width: 80,
+                height: 70,
+                width: 70,
                 point: LatLng(double.parse(listaIglesias.iglesias![i].latitud!),
                     double.parse(listaIglesias.iglesias![i].longitud!)),
                 builder: (_) {
@@ -253,8 +241,6 @@ class _MapIglesiasState extends State<MapIglesias>
                         opacity: selectedIndex == i ? 1 : 0.5,
                         child: Image.network(
                           "${IpueColors.urlHost}/images/logos/logo_${listaIglesias.iglesias![i].id}.png?v=1",
-                          width: 10,
-                          height: 10,
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -264,6 +250,9 @@ class _MapIglesiasState extends State<MapIglesias>
               ),
           ],
         ),
+        /*CircleLayer(
+          circles: circleMarkers,
+        ),*/
       ],
     );
   }
@@ -282,7 +271,7 @@ class _MapIglesiasState extends State<MapIglesias>
               blurRadius: 35.0,
             ),
           ],
-          color: IpueColors.cBlanco,
+          color: IpueColors.cPrimario,
           borderRadius: BorderRadius.all(
             Radius.circular(
               10.0,
@@ -304,12 +293,12 @@ class _MapIglesiasState extends State<MapIglesias>
                 },
                 child: const Icon(
                   Icons.arrow_back,
-                  color: IpueColors.cPrimario,
+                  color: IpueColors.cBlanco,
                 ),
               ),
               Expanded(
                 child: TextField(
-                  style: const TextStyle(color: IpueColors.cGris),
+                  style: const TextStyle(color: IpueColors.cBlanco),
                   controller: controlBuscar,
                   decoration: const InputDecoration(
                     border: InputBorder.none,
@@ -325,101 +314,14 @@ class _MapIglesiasState extends State<MapIglesias>
               ),
               GestureDetector(
                 onTap: () {
-                  _modificarRadio(8000);
+                  _myLocation();
                 },
                 child: const Icon(
-                  Icons.menu,
-                  color: IpueColors.cPrimario,
+                  Icons.my_location_outlined,
+                  color: IpueColors.cBlanco,
                 ),
               ),
-              CustomPopupMenu(
-                // ignore: sort_child_properties_last
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  constraints:
-                      const BoxConstraints(maxWidth: 240, minHeight: 40),
-                  decoration: BoxDecoration(
-                    color: const Color(0xff98e165),
-                    borderRadius: BorderRadius.circular(3.0),
-                  ),
-                  child: const Text("HOLAAAAA"),
-                ),
-                menuBuilder: _buildLongPressMenu,
-                barrierColor: Colors.transparent,
-                pressType: PressType.longPress,
-              ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildLongPressMenu() {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(5),
-      child: Container(
-        width: 220,
-        color: const Color(0xFF4C4C4C),
-        child: GridView.count(
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-          crossAxisCount: 5,
-          crossAxisSpacing: 0,
-          mainAxisSpacing: 10,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          children: menuItems
-              .map((item) => Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Icon(
-                        item.icon,
-                        size: 20,
-                        color: Colors.white,
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(top: 2),
-                        child: Text(
-                          item.title,
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 12),
-                        ),
-                      ),
-                    ],
-                  ))
-              .toList(),
-        ),
-      ),
-    );
-  }
-
-  Widget _btnMyLocation() {
-    return Positioned(
-      top: 110,
-      right: 20,
-      child: GestureDetector(
-        onTap: () {
-          _myLocation();
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            color: IpueColors.cBlanco,
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.black,
-                offset: Offset(10.0, 15.0),
-                blurRadius: 35.0,
-              ),
-            ],
-            borderRadius: BorderRadius.circular(100),
-          ),
-          child: const Padding(
-            padding: EdgeInsets.all(6.0),
-            child: Icon(
-              Icons.my_location_outlined,
-              size: 30.0,
-              color: IpueColors.cPrimario,
-            ),
           ),
         ),
       ),
@@ -430,7 +332,7 @@ class _MapIglesiasState extends State<MapIglesias>
     return Positioned(
       left: 0,
       right: 0,
-      bottom: 2,
+      bottom: 20,
       height: MediaQuery.of(context).size.height * 0.2567,
       child: PageView.builder(
         controller: pageController,
@@ -446,195 +348,138 @@ class _MapIglesiasState extends State<MapIglesias>
         itemBuilder: (_, index) {
           final item = listaIglesias.iglesias![index];
           return Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(10.0),
             child: Card(
-              elevation: 5,
+              elevation: 4,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(20),
               ),
-              color: IpueColors.cBlanco,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      // crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 1.8,
-                          child: Column(
+              color: IpueColors.cFondo,
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Lado uno
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            item.titulo!,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            softWrap: false,
+                            style: const TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: IpueColors.cBlanco,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            item.direccion!,
+                            maxLines: 3,
+                            overflow: TextOverflow.ellipsis,
+                            softWrap: false,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: IpueColors.cBlanco,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.orange,
+                              GestureDetector(
+                                onTap: () {
+                                  _launchInBrowser(Uri.parse(item.web!));
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: IpueColors.cPrimario,
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(4.0),
+                                    child: Icon(
+                                      Icons.link,
+                                      size: 25.0,
+                                      color: IpueColors.cBlanco,
+                                    ),
                                   ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.orange,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.orange,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.orange,
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                item.titulo!,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                softWrap: false,
-                                style: const TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                               const SizedBox(
-                                height: 5,
+                                width: 10,
                               ),
-                              Text(
-                                item.direccion!,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                softWrap: false,
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.grey,
+                              GestureDetector(
+                                onTap: () {
+                                  _launchInBrowser(Uri.parse(
+                                      "http://maps.google.com/maps?saddr=$latitud,$longitud&daddr=${item.latitud},${item.longitud}"));
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: IpueColors.cPrimario,
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(4.0),
+                                    child: Icon(
+                                      Icons.map,
+                                      size: 25.0,
+                                      color: IpueColors.cBlanco,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  _makePhoneCall(item.telefono!);
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: IpueColors.cPrimario,
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(4.0),
+                                    child: Icon(
+                                      Icons.phone,
+                                      size: 25.0,
+                                      color: IpueColors.cBlanco,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: Container(
-                            width: 70,
-                            height: 90,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(10.0)),
-                              image: DecorationImage(
-                                  image: NetworkImage(
-                                      "${IpueColors.urlHost}/images/iglesias/iglesia_${item.id}.png"),
-                                  fit: BoxFit.cover),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    decoration: const BoxDecoration(
-                      color: IpueColors.cPrimario,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(10.0),
-                        bottomRight: Radius.circular(10.0),
+                        ],
                       ),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const SizedBox(
-                          width: 10.0,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            _launchInBrowser(Uri.parse(item.web!));
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: const [
-                                Icon(
-                                  Icons.web_rounded,
-                                  size: 30.0,
-                                  color: IpueColors.cGris,
-                                ),
-                                Text(
-                                  "Web",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: IpueColors.cGris,
-                                  ),
-                                ),
-                                // Text("139 m"),
-                              ],
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            _launchInBrowser(Uri.parse(
-                                "http://maps.google.com/maps?saddr=$latitud,$longitud&daddr=${item.latitud},${item.longitud}"));
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: const [
-                                Icon(
-                                  Icons.my_location_rounded,
-                                  size: 30.0,
-                                  color: IpueColors.cGris,
-                                ),
-                                Text(
-                                  "Como llegar",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: IpueColors.cGris,
-                                  ),
-                                ),
-                                // Text("139 m"),
-                              ],
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            _makePhoneCall(item.telefono!);
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: const [
-                                Icon(
-                                  Icons.phone,
-                                  size: 30.0,
-                                  color: IpueColors.cGris,
-                                ),
-                                Text(
-                                  "Llamar",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: IpueColors.cGris,
-                                  ),
-                                ),
-                                // Text("+34 633535178"),
-                              ],
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10.0,
-                        ),
-                      ],
+
+                    // Lado dos
+                    Container(
+                      width: 120,
+                      height: 150,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10.0)),
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "${IpueColors.urlHost}/images/iglesias/iglesia_${item.id}.png"),
+                            fit: BoxFit.cover),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );

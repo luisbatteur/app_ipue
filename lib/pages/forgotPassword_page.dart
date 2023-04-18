@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:app_ipue/pages/EmailSentPage.dart';
@@ -153,7 +152,6 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
     return GestureDetector(
       onTap: () {
         if (formKey.currentState!.validate()) {
-          EasyLoading.show(status: 'cargando...');
           recovery();
         }
       },
@@ -248,10 +246,7 @@ class _ForgatPasswordPageState extends State<ForgatPasswordPage> {
           duration: const Duration(seconds: 6),
         );
       }
-      EasyLoading.dismiss();
-    } finally {
-      EasyLoading.dismiss();
-    }
+    } finally {}
   }
 
   /////////////////////////

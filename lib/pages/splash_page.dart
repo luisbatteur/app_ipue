@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
@@ -71,7 +70,6 @@ class _SplashPageState extends State<SplashPage> {
     getAddressFromLatLong(position);
 
     Future.delayed(const Duration(milliseconds: 3000), () {
-      EasyLoading.dismiss();
       Get.to(const MapPage());
     });
 
@@ -79,15 +77,11 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void isLogin() {
-    EasyLoading.show(status: 'cargando...');
     if (box.hasData('token')) {
       Future.delayed(const Duration(milliseconds: 3000), () {
-        EasyLoading.dismiss();
         Get.to(const HomePage());
       });
-    } else {
-      EasyLoading.dismiss();
-    }
+    } else {}
   }
 
   @override

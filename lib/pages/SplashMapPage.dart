@@ -4,7 +4,6 @@ import 'package:app_ipue/utilities/widgets_utils.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
@@ -144,7 +143,6 @@ class _SplashMapPageState extends State<SplashMapPage> {
       child: GestureDetector(
         onTap: () {
           login();
-          EasyLoading.dismiss();
           Get.to(const Dashboard());
         },
         child: Container(
@@ -196,10 +194,7 @@ class _SplashMapPageState extends State<SplashMapPage> {
       if (decodeJson["success"] == 1) {
         box.write('token', decodeJson["token"]);
       }
-      EasyLoading.dismiss();
-    } finally {
-      EasyLoading.dismiss();
-    }
+    } finally {}
   }
   ///////////////////////////////////////////////////
 }

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "489624998922",
+    "project_id": "ipue-c7951",
+    "storage_bucket": "ipue-c7951.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489624998922:android:a4f5e2e52ee8974f417bf3",
+        "android_client_info": {
+          "package_name": "com.fericor.ipue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489624998922-8ra3siti7nfltlgfpa10bedilkc55qs4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzmMyWRKlQo1R8xIOyO1uuez86h_S1pxI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489624998922-8ra3siti7nfltlgfpa10bedilkc55qs4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "489624998922-6f0416pug95fjaitllj6qjh59rmhcleu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fericor.ipue"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

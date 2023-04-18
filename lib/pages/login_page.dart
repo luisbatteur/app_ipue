@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -322,17 +321,13 @@ class _LoginPageState extends State<LoginPage> {
           duration: const Duration(seconds: 6),
         );
       }
-      EasyLoading.dismiss();
-    } finally {
-      EasyLoading.dismiss();
-    }
+    } finally {}
   }
 
   Widget _btnLogin() {
     return GestureDetector(
       onTap: () {
         if (formKey.currentState!.validate()) {
-          EasyLoading.show(status: 'cargando...');
           login();
         }
       },

@@ -1,4 +1,4 @@
-package com.example.app_ipue
+package com.fericor.ipue
 
 import io.flutter.embedding.android.FlutterActivity
 

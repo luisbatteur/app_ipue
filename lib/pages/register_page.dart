@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:app_ipue/pages/login_page.dart';
@@ -383,9 +382,8 @@ class _RegisterPageState extends State<RegisterPage> {
           duration: const Duration(seconds: 6),
         );
       }
-      EasyLoading.dismiss();
+      
     } finally {
-      EasyLoading.dismiss();
     }
   }
 
@@ -393,7 +391,6 @@ class _RegisterPageState extends State<RegisterPage> {
     return GestureDetector(
       onTap: () {
         if (formKey.currentState!.validate()) {
-          EasyLoading.show(status: 'cargando...');
           register();
         }
       },

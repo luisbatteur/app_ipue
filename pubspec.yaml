@@ -44,12 +44,15 @@ dependencies:
   http: ^0.13.5
   validators: ^3.0.0
   get: ^4.6.5
-  flutter_easyloading: ^3.0.5
   get_storage: ^2.0.3
   flutter_launcher_icons: ^0.13.0
-  flutter_svg: ^1.1.6
+  flutter_svg: ^2.0.5
   url_launcher: ^6.1.6
   custom_pop_up_menu: ^1.2.4
+  speed_dial_fab: ^2.3.0
+  date_time_picker: ^2.1.0
+  firebase_messaging: ^14.4.0
+  firebase_core: ^2.9.0
 
 dev_dependencies:
   flutter_test:

@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:app_ipue/utilities/styles_utils.dart';
@@ -109,7 +108,6 @@ class _EmailSentPageState extends State<EmailSentPage> {
   Widget _btnResendEmail() {
     return GestureDetector(
       onTap: () {
-        EasyLoading.show(status: 'cargando...');
         recovery();
       },
       child: SizedBox(
@@ -189,11 +187,7 @@ class _EmailSentPageState extends State<EmailSentPage> {
           duration: const Duration(seconds: 6),
         );
       }
-
-      EasyLoading.dismiss();
-    } finally {
-      EasyLoading.dismiss();
-    }
+    } finally {}
   }
 
   /////////////////////////
