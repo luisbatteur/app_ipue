@@ -40,6 +40,7 @@ class _SplashPageState extends State<SplashPage> {
     box.write('myAddress', address);
   }
 
+  // ignore: unused_element
   Future<Position> _determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;

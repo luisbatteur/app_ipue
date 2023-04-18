@@ -556,7 +556,6 @@ class _MapPageState extends State<MapPage> {
   }
 
   Widget _markerItem(String idIglesia) {
-    print("${ShgUtils.urlHost}/images/logos/logo_$idIglesia.png?v=1");
     return Image.network(
       "${ShgUtils.urlHost}/images/logos/logo_$idIglesia.png?v=1",
       width: 10,

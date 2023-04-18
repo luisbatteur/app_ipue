@@ -1,9 +1,11 @@
+import 'package:app_ipue/pages/mio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:app_ipue/pages/SplashMapPage.dart';
 import 'package:get_storage/get_storage.dart';
+
 
 void main() async {
   await GetStorage.init();
@@ -27,7 +29,8 @@ class MyApp extends StatelessWidget {
         fontFamily: "Roboto",
       ),
       // home: const SplashPage(),
-      home: SplashMapPage(),
+      home: const SplashMapPage(),
+      // home: const Mio(),
       builder: EasyLoading.init(),
     );
   }

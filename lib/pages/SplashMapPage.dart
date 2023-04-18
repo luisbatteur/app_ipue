@@ -12,6 +12,7 @@ import 'package:app_ipue/utilities/styles_utils.dart';
 import 'home_page.dart';
 
 class SplashMapPage extends StatefulWidget {
+  const SplashMapPage({super.key});
   @override
   State<SplashMapPage> createState() => _SplashMapPageState();
 }
@@ -96,6 +97,10 @@ class _SplashMapPageState extends State<SplashMapPage> {
             image: AssetImage("assets/images/splash.png"),
             width: 400,
           ),
+          Text("Esto es un error", style:TextStyle(
+            fontSize: 25,
+            color: Colors.white54
+          ))
         ],
       ),
     );

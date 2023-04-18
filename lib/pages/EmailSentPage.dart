@@ -10,7 +10,7 @@ class EmailSentPage extends StatefulWidget {
   final String email, password;
 
   // ignore: use_key_in_widget_constructors
-  const EmailSentPage({required this.email, required this.password});
+  const EmailSentPage({required this.email, required this.password, super.key});
 
   @override
   State<EmailSentPage> createState() => _EmailSentPageState();
